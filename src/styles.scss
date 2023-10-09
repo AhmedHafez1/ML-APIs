@@ -1,0 +1,207 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./custom-styles/theming";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+@import "./custom-styles/mixins";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+// Angular Material Styles
+.mat-card > .mat-card-actions:last-child {
+  margin-bottom: 0px !important;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.mat-list-item {
+  height: auto !important;
+}
+
+.mat-list-item-content,
+.mat-list-base .mat-list-option .mat-list-item-content {
+  padding: 0 !important;
+}
+
+.spacer {
+  flex: 1 auto;
+}
+
+.mat-typography h3 {
+  margin: 0;
+}
+
+.mat-body p,
+.mat-body-1 p,
+.mat-typography .mat-body p,
+.mat-typography .mat-body-1 p,
+.mat-typography p {
+  margin: 0;
+}
+
+.mat-body p,
+.mat-body-1 p,
+.mat-typography .mat-body p,
+.mat-typography .mat-body-1 p,
+.mat-typography p {
+  margin: 0;
+}
+
+// Components
+.action-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.action-btn[disabled],
+.play-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.play-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  margin: 10px !important;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+// Utility
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ngx-spinner {
+  span {
+    color: #f7f7f7;
+  }
+}
+
+.content {
+  height: calc(100vh - 75px);
+  padding: 35px 150px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+}
+
+.mat-table {
+  border-radius: 5px !important;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mat-header-row {
+  height: 4.5rem;
+}
+
+.mat-header-cell {
+  font-size: 15px;
+  font-weight: 500;
+  color: white !important;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding: 8px 12px;
+}
+
+.mat-row {
+  height: 4.5 rem;
+}
+
+.mat-cell {
+  font-size: 14px;
+}
+
+.delete-button {
+  margin-left: 13px;
+}
+
+.flex-width {
+  @include flex-center;
+  flex: 0 0 160px;
+  gap: 6px;
+}
+
+.flex-width-180 {
+  @include flex-center;
+  flex: 0 0 180px;
+  gap: 6px;
+}
+
+.flex-width-200 {
+  flex: 0 0 200px;
+  gap: 6px;
+}
+
+.flex-width-250 {
+  flex: 0 0 250px;
+  gap: 6px;
+}
+
+.gap-6 {
+  gap: 6px;
+}
+
+.audio-player {
+  width: 100%;
+  audio {
+    width: 100%;
+  }
+}
+
+.mat-tab-body-content {
+  overflow-x: hidden !important;
+}
+
+.mat-tab-body.mat-tab-body-active {
+  overflow-x: hidden !important;
+}
+
+.mat-tab-body {
+  height: 313px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.tab-content {
+  h3 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  padding: 20px 32px;
+  min-height: 313px;
+}
+
+.snack-success {
+  background-color: rgb(11, 143, 11);
+  color: #f2f2f2;
+}

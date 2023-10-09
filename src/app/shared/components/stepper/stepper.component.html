@@ -1,0 +1,87 @@
+<div class="container theme-bg-2 theme-color">
+  <mat-stepper orientation="horizontal" linear>
+    <mat-step [completed]="firstStepCompleted" [editable]="submitStep > 2">
+      <ng-template matStepLabel>
+        <ng-content select=".first-step-label"></ng-content
+      ></ng-template>
+      <ng-template matStepContent>
+        <div class="step-content">
+          <ng-content select=".first-step-content"></ng-content>
+        </div>
+        <div class="actions">
+          <button
+            color="primary"
+            mat-flat-button
+            matStepperNext
+            [disabled]="!firstStepCompleted"
+          >
+            Next
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
+      </ng-template>
+    </mat-step>
+    <mat-step [completed]="secondStepCompleted" [editable]="submitStep > 2">
+      <ng-template matStepLabel>
+        <ng-content select=".second-step-label"></ng-content
+      ></ng-template>
+      <ng-template matStepContent>
+        <div class="step-content">
+          <ng-content select=".second-step-content"></ng-content>
+        </div>
+        <div class="actions">
+          <button
+            color="primary"
+            mat-flat-button
+            matStepperNext
+            [disabled]="!secondStepCompleted"
+            (click)="submitStep === 2 ? confirm() : null"
+          >
+            {{ submitStep === 2 ? "Submit" : "Next" }}
+            <mat-icon>
+              {{ submitStep === 2 ? "check" : "chevron_right" }}
+            </mat-icon>
+          </button>
+          <button
+            color="primary"
+            mat-stroked-button
+            matStepperPrevious
+            *ngIf="submitStep > 2"
+          >
+            <mat-icon>chevron_left</mat-icon>
+            Back
+          </button>
+        </div>
+      </ng-template>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>
+        <ng-content select=".third-step-label"></ng-content
+      ></ng-template>
+      <ng-template matStepContent>
+        <div class="step-content">
+          <ng-content select=".third-step-content"></ng-content>
+        </div>
+        <div class="actions">
+          <button
+            color="primary"
+            mat-flat-button
+            (click)="submitStep === 2 ? save() : confirm()"
+          >
+            {{ submitStep === 2 ? "Save" : "Submit" }}
+            <mat-icon>check</mat-icon>
+          </button>
+          <button
+            color="primary"
+            mat-stroked-button
+            matStepperPrevious
+            *ngIf="submitStep > 2"
+          >
+            <mat-icon>chevron_left</mat-icon>
+            Back
+          </button>
+        </div>
+      </ng-template>
+    </mat-step>
+  </mat-stepper>
+</div>

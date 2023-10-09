@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <button mat-button class="nav-btn nav-btn--logo">
+    <img src="../../../assets/logo.png" alt="logo" />
+  </button>
+
+  <button
+    mat-button
+    routerLink="/synthesize"
+    class="nav-btn"
+    routerLinkActive="accent-bg"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    Text To Speech
+  </button>
+
+  <span class="spacer"></span>
+  <button mat-button mat-icon-button [matMenuTriggerFor]="themeMenu">
+    <mat-icon>palette</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #themeMenu="matMenu">
+  <button mat-menu-item (click)="onThemeChange('default-theme')">
+    <mat-icon>star</mat-icon>
+    <span>Indigo & Pink</span>
+  </button>
+  <button mat-menu-item (click)="onThemeChange('dark-theme')">
+    <mat-icon>cloud</mat-icon>
+    <span>Dark & Blue Grey</span>
+  </button>
+  <button mat-menu-item (click)="onThemeChange('custom-theme')">
+    <mat-icon>eco</mat-icon>
+    <span>Purple & Green</span>
+  </button>
+</mat-menu>

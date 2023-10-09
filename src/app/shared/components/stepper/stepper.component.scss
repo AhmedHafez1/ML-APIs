@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  min-height: calc(100vh - 75px);
+  justify-content: center;
+  padding: 35px 150px;
+}
+
+.action-btn {
+  height: 50px;
+  width: auto;
+  font-size: 21px;
+}
+
+mat-stepper {
+  width: 100%;
+  padding: 25px 50px;
+  border-radius: 5px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+mat-step {
+  height: 100%;
+}
+
+::ng-deep .mat-stepper-horizontal {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  align-self: stretch;
+  gap: 17px;
+}
+
+::ng-deep .mat-horizontal-stepper-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 auto;
+}
+
+::ng-deep .mat-horizontal-content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep
+  .mat-horizontal-stepper-content:not(
+    .mat-horizontal-stepper-content-inactive
+  ) {
+  flex: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.step-content {
+  flex: 1;
+  padding: 25px 35px;
+}

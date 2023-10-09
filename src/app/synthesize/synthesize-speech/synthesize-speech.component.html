@@ -1,0 +1,92 @@
+<app-stepper
+  [firstStepCompleted]="firstStepCompleted"
+  [secondStepCompleted]="secondStepCompleted"
+  (submitEvent)="synthesizeSpeech()"
+  (saveEvent)="saveSpeech()"
+  [submitStep]="2"
+>
+  <span ngProjectAs=".first-step-label"> Select Your Language & Voice </span>
+  <div class="first-step-content" ngProjectAs=".first-step-content">
+    <mat-form-field appearance="outline">
+      <mat-label>Language</mat-label>
+      <mat-select
+        [(ngModel)]="language"
+        (selectionChange)="getLanguagesVoiceList()"
+      >
+        <mat-option [value]="lang.code" *ngFor="let lang of languages">{{
+          lang.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Voice</mat-label>
+      <mat-select [(ngModel)]="voice" [disabled]="gettingVoices">
+        <mat-option
+          [value]="voice.name"
+          *ngFor="let voice of (voiceList$ | async) || []"
+          >{{ voice.name }} - {{ voice.ssmlGender }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <div class="slide-labels">
+        <mat-label class="slide-label">Speed</mat-label>
+        <label class="value-label accent-color">{{ speedSlider.value }}</label>
+      </div>
+      <mat-slider
+        class="theme-bg slider"
+        [max]="4"
+        [min]="0.25"
+        [step]="0.01"
+        [(ngModel)]="speed"
+        thumbLabel
+        #speedSlider
+      >
+      </mat-slider>
+      <div class="slide-labels">
+        <mat-label class="slide-label">0.25</mat-label>
+        <mat-label class="slide-label">4.00</mat-label>
+      </div>
+    </div>
+    <div>
+      <div class="slide-labels">
+        <mat-label class="slide-label">Pitch</mat-label>
+        <label class="value-label accent-color">{{ pitchSlider.value }}</label>
+      </div>
+      <mat-slider
+        class="theme-bg slider"
+        [max]="20"
+        [min]="-20"
+        [step]="0.2"
+        [(ngModel)]="pitch"
+        thumbLabel
+        #pitchSlider
+      >
+      </mat-slider>
+      <div class="slide-labels">
+        <mat-label class="slide-label">-20</mat-label>
+        <mat-label class="slide-label">20</mat-label>
+      </div>
+    </div>
+  </div>
+
+  <span ngProjectAs=".second-step-label"> Put Your Text </span>
+  <div class="second-step-content" ngProjectAs=".second-step-content">
+    <mat-form-field appearance="outline">
+      <textarea
+        rows="15"
+        placeholder="Text in {{ LANGUAGE_NAME_MAP[language] }}"
+        matInput
+        [(ngModel)]="text"
+        [class.arabic]="['ar', 'ur'].includes(language)"
+      ></textarea>
+    </mat-form-field>
+  </div>
+
+  <span ngProjectAs=".third-step-label"> Get Your Speech </span>
+  <div class="third-step-content" ngProjectAs=".third-step-content">
+    <div class="audio-player">
+      <audio controls #audioElement></audio>
+    </div>
+  </div>
+</app-stepper>

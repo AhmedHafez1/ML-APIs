@@ -1,0 +1,48 @@
+@mixin theme-colors($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .primary-color {
+    color: mat-color($primary);
+  }
+  .primary-bg {
+    background-color: mat-color($primary);
+  }
+  .primary-border {
+    border-top: 5px solid mat-color($primary);
+  }
+
+  .success {
+    background-color: rgb(3, 146, 3);
+    button {
+      color: white;
+    }
+  }
+
+  .accent-color {
+    color: mat-color($accent);
+  }
+  .accent-bg {
+    background-color: mat-color($accent);
+  }
+  .accent-border {
+    border-top: 5px solid mat-color($accent);
+  }
+
+  .warn-color {
+    color: mat-color($warn);
+  }
+  .warn-bg {
+    background-color: mat-color($warn);
+  }
+  .warn-border {
+    border-top: 5px solid mat-color($warn);
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
